@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table with Search and Pagination using Bootstrap</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- jQuery and Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+	<div class="container mt-5">
+		<h2 class="text-center mb-3">Table CTI-Test</h2>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
+					<div class="input-group-append">
+					  <button class="btn btn-secondary" type="button" (click)="search()">Go</button>
+					</div>
+				  </div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-md-12">
+				<table id="tabel" class="table table-striped table-bordered">
+					<thead>
+					  <tr>
+						<th>No</th>
+						<th>Nama</th>
+						<th>Pekerjaan</th>
+						<th>Email</th>
+						<th>Detail</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr *ngFor="let user of datauser | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage; let i = index">
+						<td>{{(currentPage - 1) * itemsPerPage + i + 1}}</td>
+						<td>{{user.nama}}</td>
+						<td>{{user.pekerjaan}}</td>
+						<td>{{user.email}}</td>
+						<td><button (click)="showDetail(user)">Detail</button></td>
+					  </tr>
+					</tbody>
+				  </table>
+				  <label for="example-select" class="selectbox">items Per Page : </label>
+					<select class="form-select" (change)="onItemsPerPageChange($event)">
+						<option value="3">3 items</option>
+						<option value="5">5 items</option>
+						<option value="10">10 items</option>
+					</select>
+				  <nav *ngIf="pageCount > 1">
+					<ul class="pagination">
+					  <li class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+						<a class="page-link" (click)="prevPage()">Previous</a>
+					  </li>
+					  <li class="page-item" [ngClass]="{'active': page === currentPage}" *ngFor="let page of pages">
+						<a class="page-link" (click)="setPage(page)">{{page}}</a>
+					  </li>
+					  <li class="page-item" [ngClass]="{'disabled': currentPage === pageCount}">
+						<a class="page-link" (click)="nextPage()">Next</a>
+					  </li>
+					</ul>
+				  </nav><br><br>
+				  
+            </div>
+        </div>
+		<div class="group">
+			<input type="button" (click)="Porto()" class="btn btn-success" value="HALAMAN PORTOFOLIO" name="btn_login">
+		</div>
+    </div>
+</body>
+<script>
+    $("#tabel").on("click", "tr", function(e){
+        var value = $(this).find('td:first').text();
+        this.router.navigate(['/detail'+value]);
+        });
+    </script>
+</html>

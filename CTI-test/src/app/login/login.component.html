@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CTI - Login</title>
+    <link href="icon/favicon.ico" rel="icon" type="image/x-icon" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="dist/lib/jquery-3.2.1.min.js"></script>
+    <script src="dist/lib/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #F4F4F4;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-left: 25%;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .login-body {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            display: block;
+            margin: auto;
+        }
+
+        .group {
+            margin-top: 30px;
+        }
+
+        .btn-success {
+            width: 35%;
+        }
+    
+    </style>
+</head>
+
+<body style="background-color:#F4F4F4;">
+    <br><br><br><br>
+    <div class="container">
+        <div class="login-body">
+            <img src="data:image/png;base64,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">
+            <h2>Login</h2>
+            <input [(ngModel)]="email" name="email" id="email" placeholder="Email" class="form-control" type="email"
+                style="text-align:center;width:30%;" required>
+            <br>
+            <input [(ngModel)]="password" name="password" id="password" minlength="6" placeholder="Password"
+                class="form-control" style="text-align:center;width:30%;" type="password"
+                autocomplete="current-password" required>
+            <br>
+            <input type="checkbox" [(ngModel)]="rememberMe" name="remember" id="remember">
+            <label for="remember">Remember me</label>
+            <div class="group">
+                <input type="button" (click)="Login()" class="btn btn-success" value="Masuk" name="btn_login">
+            </div>
+        </div>
+    </div>
+    <div style="margin-left: 45%;">
+		<h1>Login Info</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>email</th>
+					<th>password</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let users of users; let i = index">
+					<td>{{ users.email }}</td>
+					<td>{{ users.password }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    <script language="JavaScript" type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+</body>
+
+</html>

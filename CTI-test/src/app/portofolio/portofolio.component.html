@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Portofolio</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1, h2, h3 {
+        margin: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+      }
+      .name {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .contact {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+      .section {
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+      }
+      .section h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .job {
+        margin-bottom: 20px;
+      }
+      .job h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .job p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+      .skills ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .skills li {
+        font-size: 18px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        background-color: #eee;
+        border-radius: 5px;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="name">Alvin Sebastian Marviano</div>
+        <div class="contact">
+          amarviano@gmail.com<br>
+          085155312299
+        </div>
+      </header>
+      <section class="section">
+        <h2>Summary</h2>
+        <p>Fresh Information System graduate from iSTTS university Surabaya with 3.53 GPA. My skills include, but are not limited to: Javascript, MySQL, PHP, Ionic, Angular JS, Typescript, and HTML. Eager to learn new skills everyday.</p>
+      </section>
+      <section class="section">
+        <h2>Experience</h2>
+        <div class="job">
+          <h3>Web Developer, Goda-Gado Yogyakarta</h3>
+          <p>Developed a web based POS for restaurant, using HTML, CSS, and JavaScript.</p>   
+        </div>
+        <div class="job">
+          <h3>Creating android app using Ionic and Angular (Thesis)</h3>
+          <p>Developed a marketplace application using Ionic and Angular, and mySQL for the database.</p>   
+        </div>
+      </section>
+      <section class="section">
+        <h2>Skills</h2>
+<div class="skills">
+<ul>
+<li>JavaScript</li>
+<li>MySQL</li>
+<li>PHP</li>
+<li>Ionic</li>
+<li>Angular JS</li>
+<li>TypeScript</li>
+<li>HTML</li>
+<li>CSS</li>
+</ul>
+</div>
+</section>
+<section class="section">
+<h2>Education</h2>
+<div class="job">
+<h3>Bachelor of Information System, iSTTS Surabaya</h3>
+<p>Graduated in September 2022 with a GPA of 3.53.</p>
+</div>
+</section>
+<div class="center">
+
+    <button (click)="navigateToHome()">Back to Home</button></div>
+</div>
+
+  </body>
+</html>
